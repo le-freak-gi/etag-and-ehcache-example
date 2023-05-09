@@ -5,7 +5,7 @@ java 17, spring mvc 5.0.4.RELEASE, jsp, etag, ehcache
 
 backend : /spring-mvc-showcase/src/main/java/org/springframework/samples/mvc/cache/*.java
 
-frontend : /spring-mvc-showcase/src/main/webapp/WEB-INF/views/views/html.jsp
+frontend : /spring-mvc-showcase/src/main/webapp/WEB-INF/views/views/html.jsp <br/>
            /spring-mvc-showcase/src/main/webapp/WEB-INF/views/cache.jsp
                       
 1. add this project to tomcat
