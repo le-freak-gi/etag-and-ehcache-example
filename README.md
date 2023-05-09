@@ -10,7 +10,7 @@ frontend : /spring-mvc-showcase/src/main/webapp/WEB-INF/views/views/html.jsp <br
                       
 1. add this project to tomcat
 2. tomcat config > module path : / 
-3. run tomcat > access http://localhost:yourport > click cache tag
+3. run tomcat > access http://localhost:yourport > click cache tab
 
 
 ## spring-boot-etag-ehcache
