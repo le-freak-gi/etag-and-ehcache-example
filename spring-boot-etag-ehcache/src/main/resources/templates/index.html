@@ -137,6 +137,14 @@ $(document).ready(function() {
 	});
 	*/
 	
+	function isJSON(str) {
+	    try {
+	        return (JSON.parse(str) && !!str);
+	    } catch (e) {
+	        return false;
+	    }
+	}
+	
 	function res(resSpanId, result, resHeader, text, status){
 						$("#"+resSpanId).attr("style","");
 						$("#"+resSpanId+" > div").attr("class",result);
@@ -188,6 +196,9 @@ $(document).ready(function() {
  		e.preventDefault();
 		var textArea = $("#textareaData");
 		var strJsonData = textArea.val();
+		if(!isJSON(strJsonData)){
+			return alert("invalid json string");
+		}
 		var updateResultLabel = $("#updateResultLabel");
 		$.ajax({ url: "/cache/new-data",  
 				/* beforeSend: function(xhr){xhr.setRequestHeader(header, token);}, */
