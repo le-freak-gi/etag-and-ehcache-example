@@ -43,7 +43,7 @@ public class CacheServiceImpl implements CacheService{
 	
 	@CacheEvict(value = "boardList", allEntries=true)
 	@Override
-	public void saveAllBoardData(List<BoardDto> boardList) throws NullPointerException{
+	public void saveAllBoardData(List<BoardDto> boardList) throws IllegalArgumentException{
 		Optional.ofNullable(boardList)
 				.ifPresentOrElse(list->{
 					list.forEach(boardDto->{
