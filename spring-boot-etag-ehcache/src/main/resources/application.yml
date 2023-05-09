@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    initialization-mode: always
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none                            
+    generate-ddl: true                          
+    show-sql: true                              
+      
