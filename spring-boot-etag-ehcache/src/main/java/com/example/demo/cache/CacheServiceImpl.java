@@ -30,13 +30,13 @@ public class CacheServiceImpl implements CacheService{
 	
 	@CacheEvict(value = "boardList", allEntries=true)
 	@Override
-	public void saveBoardData(BoardDto boardDto) throws NullPointerException{
+	public void saveBoardData(BoardDto boardDto) throws IllegalArgumentException{
 		Optional.ofNullable(boardDto)
 				.ifPresentOrElse(o->{
 					boardRepository.save(o);
 				}, ()->{
 					logger.error("CacheServiceImpl.saveBoardData null parameter value");
-					throw new NullPointerException();
+					throw new IllegalArgumentException();
 				});
 		
 	}
@@ -51,7 +51,7 @@ public class CacheServiceImpl implements CacheService{
 					});
 				}, ()->{
 					logger.error("CacheServiceImpl.saveAllBoardData null parameter value");
-					throw new NullPointerException();
+					throw new IllegalArgumentException();
 				});
 	}
 }
