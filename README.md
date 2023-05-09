@@ -14,7 +14,7 @@ frontend : /spring-mvc-showcase/src/main/webapp/WEB-INF/views/views/html.jsp <br
 
 
 ## spring-boot-etag-ehcache
-java 17, spring boot 2.7.11, thymeleaf, h2 DB, etag, ehcache
+java 17, spring boot 2.7.11, thymeleaf, h2 DB, jpa, etag, ehcache
 
 1. run the embedded server
 2. access http://localhost:8080
