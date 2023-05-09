@@ -44,9 +44,18 @@ public class CacheController {
     
 	@RequestMapping(value = "/new-data", method = RequestMethod.POST)
 	public ResponseEntity<Map<String, Object>> setData(@RequestBody List<BoardDto> boardList) {
-		cacheService.saveAllBoardData(boardList);
+		String serviceCode = "00";
+		String message = "success";
+		try {
+			cacheService.saveAllBoardData(boardList);
+		}catch(Exception e) {
+			serviceCode = "01";
+			message = "error";
+		}
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("data", cacheService.getAllBoardData());
+        result.put("serviceCode", serviceCode);
+        result.put("message", message);
 		return new ResponseEntity<>(result, HttpStatus.valueOf(200));
 	}
 }

@@ -206,8 +206,15 @@ $(document).ready(function() {
 				data:strJsonData,
 				dataType:"json", 
 				contentType:"application/json;charset=utf-8",
-				success: function(text) { MvcUtil.showSuccessResponse("success", updateResultLabel); }, 
-				error: function(xhr) {  MvcUtil.showErrorResponse(xhr.responseText, "error", updateResultLabel); }
+				success: function(data, text) {
+					if(data.serviceCode=="00"){
+						MvcUtil.showSuccessResponse("success", updateResultLabel); 
+					}else{
+						MvcUtil.showErrorResponse("error", updateResultLabel);
+					}
+					$("#textareaData").val(JSON.stringify(data.data)); 
+				}, 
+				error: function(xhr) {  MvcUtil.showErrorResponse("error", updateResultLabel); }
 				});
 		return false;
 	});

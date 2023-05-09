@@ -30,26 +30,21 @@ public class CacheServiceImpl implements CacheService{
 	
 	@CacheEvict(value = "boardList", allEntries=true)
 	@Override
-	public void saveBoardData(BoardDto boardDto) {
-		Optional.ofNullable(boardDto)
-				.ifPresentOrElse(o->{
+	public void saveBoardData(BoardDto boardDto) throws NullPointerException{
+		Optional.of(boardDto)
+				.ifPresent(o->{
 					boardRepository.save(o);
-				}, ()->{
-					logger.error("CacheServiceImpl.saveBoardData null parameter value");
 				});
-		
 	}
 	
 	@CacheEvict(value = "boardList", allEntries=true)
 	@Override
-	public void saveAllBoardData(List<BoardDto> boardList) {
-		Optional.ofNullable(boardList)
-				.ifPresentOrElse(list->{
+	public void saveAllBoardData(List<BoardDto> boardList) throws NullPointerException{
+		Optional.of(boardList)
+				.ifPresent(list->{
 					list.forEach(boardDto->{
 						boardRepository.save(boardDto);
 					});
-				}, ()->{
-					logger.error("CacheServiceImpl.saveAllBoardData null parameter value");
 				});
 	}
 }
